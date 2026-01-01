@@ -7,7 +7,7 @@ DECLARE
     luna NUMBER := EXTRACT(MONTH FROM SYSDATE);
 BEGIN
     IF (zi = 25 AND luna = 12) OR (zi = 1 AND luna = 1) THEN
-        RAISE_APPLICATION_ERROR(-20003, 'Ast�zi nu se pot modifica rezerv�ri. Este zi liber�.');
+        RAISE_APPLICATION_ERROR(-20003, 'Astăzi nu se pot modifica rezervări. Este zi liberă.');
     END IF;
 END;
 

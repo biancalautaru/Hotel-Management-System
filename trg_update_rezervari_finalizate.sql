@@ -5,7 +5,7 @@ BEFORE UPDATE ON rezervari
 FOR EACH ROW
 BEGIN
     IF UPPER(:OLD.stare) = 'FINALIZATA' THEN
-        RAISE_APPLICATION_ERROR(-20004, 'Rezerv�rile finalizate nu pot fi modificate.');
+        RAISE_APPLICATION_ERROR(-20004, 'Rezervările finalizate nu pot fi modificate.');
     END IF;
 END;
 
