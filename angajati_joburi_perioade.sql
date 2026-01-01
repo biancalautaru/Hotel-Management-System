@@ -1,3 +1,5 @@
+-- Să se afișeze pentru fiecare hotel, angajații care au lucrat în acel hotel, joburile pe care le-au ocupat și perioadele, în ordine crescătoare a datelor la care au început să lucreze.
+
 CREATE OR REPLACE PROCEDURE angajati_joburi_perioade
 IS
     CURSOR c_hoteluri

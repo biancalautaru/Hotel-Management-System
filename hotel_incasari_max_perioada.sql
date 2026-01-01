@@ -1,3 +1,5 @@
+-- Pentru un interval de timp dat, să se afișeze hotelul cu cele mai mari încasări, dar acceptând doar anumite metode de plată. Să se afișeze și numărul total de facturi plătite la toate hotelurile în perioada respectivă, suma totală și media acestora.
+
 CREATE OR REPLACE PROCEDURE hotel_incasari_max_perioada (
     p_data_inceput IN DATE,
     p_data_sfarsit IN DATE
