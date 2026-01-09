@@ -1,0 +1,29 @@
+1. Descrierea modelului
+
+Modelul descrie structura unui sistem utilizat pentru gestionarea activităților unui hotel, care permite tratarea unor situații complexe întâlnite în funcționarea acestuia.
+Acesta include entitățile esențiale pentru organizarea unui hotel: Hoteluri, Angajați, Joburi, Camere, Rezervări, Facturi, Servicii, Clienți. Fiecare entitate conține atributele necesare pentru desfășurarea eficientă a activității hotelului.
+Relațiile dintre entități reflectă modul real de funcționare a unui hotel: un hotel are angajați care ocupă diferite joburi, clienții pot rezerva camere și pot adăuga servicii suplimentare, iar pentru fiecare rezervare se generează facturile asociate.
+
+2. Regulile modelului (cardinalitățile)
+
+- Relația lucrează_la (Angajați – Joburi – Hoteluri): M(0) – M(0) – M(0)
+	- Un angajat poate ocupa mai multe joburi la mai multe hoteluri de-a lungul timpului sau poate să nu aibă încă niciun job sau hotel asociate.
+	- Un job poate fi ocupat de mai mulți angajați din mai multe hoteluri sau de niciunul, în niciun hotel.
+	- Un hotel poate avea mai mulți angajați și mai multe tipuri de joburi sau niciun angajat și niciun job asociate încă.
+	- Relația devine tabelul asociativ Istoric_Joburi în diagrama conceptuală.
+- Relația are (Hoteluri – Camere): 1 – M(0)
+	-	Un hotel poate avea mai multe camere sau niciuna (de exemplu, dacă este în renovare).
+	-	O cameră aparține unui singur hotel, dar nu poate exista fără să fie asociată unui hotel.
+- Relația conține (Rezervări – Camere): M(0) – 1
+	-	O rezervare poate conține maxim o cameră (dacă un client dorește să rezerve mai multe camere, se vor realiza mai multe rezervări), dar nu poate să nu conțină nicio cameră.
+	-	O cameră poate să facă parte din mai multe rezervări (în perioade diferite) sau niciuna.
+- Relația generează (Rezervări – Facturi): 1 – M(0)
+	-	O rezervare poate genera mai multe facturi (pentru avans, restul sumei de achitat, servicii suplimentare), dar poate să nu fie generată nicio factură imediat ce se face o rezervare.
+	-	O factură este generată de o singură rezervare, dar nu poate să existe fără aceasta.
+- Relația face (Clienți – Rezervări): 1 – M(0)
+	-	Un client poate să facă mai multe rezervări sau niciuna (clientul poate să fie înregistrat în sistem, dar nu a făcut încă nicio rezervare).
+	-	O rezervare aparține unui singur client și nu poate exista fără client.
+- Relația include (Rezervări – Servicii): M(0) – M(0)
+	-	O rezervare poate include mai multe servicii suplimentare sau niciunul.
+	-	Un serviciu poate să fie inclus în mai multe rezervări sau niciuna.
+	-	Relația devine tabelul asociativ Servicii_Rezervări în diagrama conceptuală.
